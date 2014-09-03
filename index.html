@@ -29,36 +29,53 @@
       <div class="inner clearfix">
         <section id="main-content">
           <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+<a name="it-is-this" class="anchor" href="#it-is-this"><span class="octicon octicon-link"></span></a>It is this</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>I created SpritePacker to be able to easily convert GIF animations to PNG sprite atlases to easily import and use them in Unity.</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<h3>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h3>
+
+<ul>
+<li>Sprite atlas from a single GIFs</li>
+<li>Compound sprite from multiple GIFs</li>
+<li>Keep the folder structure.</li>
+</ul><h3>
+<a name="planned-features" class="anchor" href="#planned-features"><span class="octicon octicon-link"></span></a>Planned features</h3>
+
+<ul>
+<li>Add a single image to the sprite atlas (now possible with a single-frame gif only).</li>
+<li>Keep the ordering of the GIFs in the sprite atlas (now only keeps the files sorted alphabetically)</li>
+<li>Allow use of image sequences.</li>
+<li>SpritePacker does not currently support combining various frame sizes in a compound sprite atlas. (The size of the frame for resulting atlas is taken from the very first processed animation).</li>
+</ul><h3>
+<a name="how-it-works" class="anchor" href="#how-it-works"><span class="octicon octicon-link"></span></a>How it works</h3>
+
+<p>Create a folder where you will export GIFs, images and image sequences from your favorite editor. For example:</p>
+
+<pre><code>    Sprites
+        Barry
+            Barry-Run.gif
+            Barry-Idle.gif
+            Barry-Attack.compound
+                Barry-Attack-Mace.gif
+                Barry-Attack-Sword.gif
+                Barry-Attack-Chair.gif
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>Run the SpritePacker and pass it the root of the Sprites directory: <code>SpritePacker.exe Sprites</code>. SpritePacker will generate a subdirectory called <code>.package</code> where the result will be generated. Note: Files and repositories prefixed with <code>.</code> (dot) are ignored, so the <code>.package</code> directory will be ignored at the next run.</p>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<pre><code>    Sprites
+        .package
+            Barry
+                Barry-Run.png
+                Barry-Idle.png
+                Barry-Attack.png
+</code></pre>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>SpritePacker generated <code>Barry-Run.png</code> and <code>Barry-Idle.png</code> from the single GIFs (<code>Barry-Run.gif</code> and <code>Barry-Idle.gif</code> respectively), but made one large PNG file from all the attacks. That's because those were stored in a directory with <code>.compound</code> suffix.</p>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>SpritePacker also kept the directory structure the same as was the input.</p>
         </section>
 
         <aside id="sidebar">
